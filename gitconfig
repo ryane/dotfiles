@@ -6,7 +6,7 @@
 [core]
 	excludesfile = /Users/ryan/.gitignore
 [alias]
-	ci = commit
+	ci = commit -v
 	st = status -sb
 	co = checkout
 	br = branch
