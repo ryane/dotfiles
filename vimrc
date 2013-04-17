@@ -166,6 +166,9 @@ map <leader>tm :tabmove
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
+" open quickfix window after any grep invocation
+" https://github.com/tpope/vim-fugitive (see FAQ)
+autocmd QuickFixCmdPost *grep* cwindow
 
 " Some helpers to edit mode
 " http://vimcasts.org/e/14
