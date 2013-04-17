@@ -117,6 +117,9 @@ if has('gui_running')
   "set lines=40                " 40 lines of text instead of 24,
 endif
 
+" use custom snipmate directory
+let g:snippets_dir="$HOME/.vim/bundle/snipmate-snippets"
+
 " use comma (,) for leader
 let mapleader = ","
 
