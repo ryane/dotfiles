@@ -3,6 +3,7 @@
 
 dotfiles_dir=`pwd`
 
+ln -s $dotfiles_dir/bundle      ~/.bundle
 ln -s $dotfiles_dir/ackrc	      ~/.ackrc
 ln -s $dotfiles_dir/gitconfig 	~/.gitconfig
 ln -s $dotfiles_dir/githelpers 	~/.githelpers
