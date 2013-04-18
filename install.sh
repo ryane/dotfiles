@@ -3,13 +3,25 @@
 
 dotfiles_dir=`pwd`
 
-ln -s $dotfiles_dir/bundle      ~/.bundle
-ln -s $dotfiles_dir/ackrc	      ~/.ackrc
-ln -s $dotfiles_dir/gitconfig 	~/.gitconfig
-ln -s $dotfiles_dir/githelpers 	~/.githelpers
-ln -s $dotfiles_dir/gitignore 	~/.gitignore
-ln -s $dotfiles_dir/irbrc 	    ~/.irbrc
-ln -s $dotfiles_dir/tmux.conf 	~/.tmux.conf
-ln -s $dotfiles_dir/vimrc 	    ~/.vimrc
-ln -s $dotfiles_dir/zshenv 	    ~/.zshenv
-ln -s $dotfiles_dir/zshrc 	    ~/.zshrc
+link_dotfile() {
+  dotfile=$1
+  dest=~/.$dotfile
+  if [[ ! -e $dest ]]; then
+    echo "Linking $dest"
+    ln -s $dotfiles_dir/$dotfile $dest
+  fi
+}
+
+link_dotfile 'bundle'
+link_dotfile 'ackrc'
+link_dotfile 'gitconfig'
+link_dotfile 'githelpers'
+link_dotfile 'gitignore'
+link_dotfile 'irbrc'
+link_dotfile 'tmux.conf'
+if [[ "$(uname)" = "Darwin" ]]; then
+  link_dotfile 'tmux-osx.conf'
+fi
+link_dotfile 'vimrc'
+link_dotfile 'zshenv'
+link_dotfile 'zshrc'
