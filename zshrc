@@ -130,3 +130,16 @@ rspec() {
     command rspec "$@"
   fi
 }
+
+# launch tmux with appropriate config
+# as mentioned in https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/issues/8#issuecomment-4134987,
+# this might be better as a script
+tmux() {
+  if [[ "$(uname)" = "Darwin" ]]; then
+    echo "Using OSX config"
+    command tmux -2 -f ~/.tmux-osx.conf "$@"
+  else
+    echo "Using default config"
+    command tmux -2 "$@"
+  fi
+}

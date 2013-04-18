@@ -56,6 +56,10 @@ This was poached from https://github.com/garybernhardt/dotfiles/blob/master/.git
 
 ### tmux.conf
 
+### tmux-osx.conf
+
+Some OSX specific settings for tmux. Loading it depends on a shell alias for tmux. See https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/issues/8#issuecomment-4134987 and https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/issues/8#issuecomment-4139742
+
 ### vimrc
 
 ### zshenv
