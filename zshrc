@@ -21,6 +21,10 @@ export ZSH_THEME="agnoster"
 # oh-my-zsh plugins
 plugins=(vi-mode tmuxinator bundler rails3 heroku git brews)
 
+# custom functions
+fpath=(~/.zsh/func $fpath)
+autoload -U rake rspec tmux start-ssh-agent
+
 source $ZSH/oh-my-zsh.sh
 
 # prevent renaming in tmux
@@ -114,69 +118,7 @@ eval "$(rbenv init - zsh)"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# some custom functions
-rake() {
-  if [ -S .zeus.sock ]; then
-    zeus rake "$@"
-  else
-    command rake "$@"
-  fi
-}
+### start or connect to ssh-agent on linux machines
+### only tested on ubuntu 12.04
+[[ "$(uname)" = "Linux" ]] && start-ssh-agent
 
-rspec() {
-  if [ -S .zeus.sock ]; then
-    zeus rspec "$@"
-  else
-    command rspec "$@"
-  fi
-}
-
-# launch tmux with appropriate config
-# as mentioned in https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/issues/8#issuecomment-4134987,
-# this might be better as a script
-tmux() {
-  if [[ "$(uname)" = "Darwin" ]]; then
-    command tmux -2 -f ~/.tmux-osx.conf "$@"
-  else
-    command tmux -2 "$@"
-  fi
-}
-
-# TODO: move this somewhere less intrusive
-if [[ "$(uname)" = "Linux" ]]; then
-  # setup ssh-agent on linux machines
-  # check to see if SSH Agent is already running
-  agent_pid="$(ps -ef | grep "ssh-agent" | grep -v "grep" | awk '{print($2)}')"
-
-  # If the agent is not running (pid is zero length string)
-  if [[ -z "$agent_pid"  ]]; then
-    # Start up SSH Agent
-
-    # this seems to be the proper method as opposed to `exec ssh-agent bash`
-    eval "$(ssh-agent)"
-
-    # if you have a passphrase on your key file you may or may
-    # not want to add it when logging in, so comment this out
-    # if asking for the passphrase annoys you
-    ssh-add
-
-    # If the agent is running (pid is non zero)
-  else
-    # Connect to the currently running ssh-agent
-
-    # this doesn't work because for some reason the ppid is 1 both when
-    # starting from ~/.profile and when executing as `ssh-agent bash`
-    #agent_ppid="$(ps -ef | grep "ssh-agent" | grep -v "grep" | awk '{print($3)}')"
-    agent_ppid="$(($agent_pid - 1))"
-
-    # and the actual auth socket file name is simply numerically one less than
-    # the actual process id, regardless of what `ps -ef` reports as the ppid
-    agent_sock="$(find /tmp -path "*ssh*" -type s -iname "agent.$agent_ppid")"
-
-    echo "Agent pid $agent_pid"
-    export SSH_AGENT_PID="$agent_pid"
-
-    echo "Agent sock $agent_sock"
-    export SSH_AUTH_SOCK="$agent_sock"
-  fi
-fi

@@ -25,3 +25,4 @@ fi
 link_dotfile 'vimrc'
 link_dotfile 'zshenv'
 link_dotfile 'zshrc'
+link_dotfile 'zsh'
