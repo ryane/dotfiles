@@ -136,10 +136,8 @@ rspec() {
 # this might be better as a script
 tmux() {
   if [[ "$(uname)" = "Darwin" ]]; then
-    echo "Using OSX config"
     command tmux -2 -f ~/.tmux-osx.conf "$@"
   else
-    echo "Using default config"
     command tmux -2 "$@"
   fi
 }
