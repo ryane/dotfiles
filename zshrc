@@ -23,7 +23,7 @@ plugins=(vi-mode tmuxinator bundler rails3 heroku git brews)
 
 # custom functions
 fpath=(~/.zsh/func $fpath)
-autoload -U rake rspec tmux start-ssh-agent
+autoload -U rake rspec start-ssh-agent
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,10 +106,6 @@ pman () {
 # https://github.com/aziz/tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
-# customize path
-
-export PATH=/usr/local/bin:$PATH
-
 # rbenv
 export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
@@ -121,4 +117,3 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### start or connect to ssh-agent on linux machines
 ### only tested on ubuntu 12.04
 [[ "$(uname)" = "Linux" ]] && start-ssh-agent
-
