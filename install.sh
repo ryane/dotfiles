@@ -6,7 +6,7 @@ dotfiles_dir=`pwd`
 link_dotfile() {
   dotfile=$1
   dest=~/.$dotfile
-  if [[ ! -e $dest ]]; then
+  if [ ! -e $dest ]; then
     echo "Linking $dest"
     ln -s $dotfiles_dir/$dotfile $dest
   fi
@@ -19,7 +19,7 @@ link_dotfile 'githelpers'
 link_dotfile 'gitignore'
 link_dotfile 'irbrc'
 link_dotfile 'tmux.conf'
-if [[ "$(uname)" = "Darwin" ]]; then
+if [ "$(uname)" = "Darwin" ]; then
   link_dotfile 'tmux-osx.conf'
 fi
 link_dotfile 'vimrc'
