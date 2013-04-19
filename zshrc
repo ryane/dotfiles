@@ -19,7 +19,7 @@ export ZSH_THEME="agnoster"
 #
 
 # oh-my-zsh plugins
-plugins=(vi-mode tmuxinator bundler rails3 heroku git brews)
+plugins=(vi-mode tmuxinator rails3 heroku git brews)
 
 # custom functions
 fpath=(~/.zsh/func $fpath)
@@ -62,6 +62,11 @@ alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\
 alias ag='nocorrect ag'
 alias vims='nocorrect vim -S'
 alias b="nocorrect bundle"
+alias be="bundle exec"
+alias bi="bundle install"
+alias bl="bundle list"
+alias bp="bundle package"
+alias bu="bundle update"
 
 if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
