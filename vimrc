@@ -121,7 +121,7 @@ if has('gui_running')
 endif
 
 " use custom snipmate directory
-let g:snippets_dir="$HOME/.vim/bundle/snipmate-snippets"
+let g:snippets_dir="$HOME/.vim/bundle/snipmate-snippets/snippets"
 
 " use comma (,) for leader
 let mapleader = ","
