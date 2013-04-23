@@ -23,7 +23,7 @@ plugins=(vi-mode tmuxinator rails3 heroku git brews)
 
 # custom functions
 fpath=(~/.zsh/func $fpath)
-autoload -U rake rspec start-ssh-agent
+autoload -U rake rspec start-ssh-agent consolidate-path
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,8 +72,15 @@ if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
 fi
 
+# make sure /usr/local/bin is in the path
+if [ -d /usr/local/bin ]; then
+  export PATH=:/usr/local/bin:$PATH
+fi
+
+# add your bin folder to the path, if you have it.
+# It's a good place to add all your scripts
 if [ -d ~/bin ]; then
-  export PATH=:~/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
+  export PATH=:~/bin:$PATH
 fi
 
 if [  -d ~/.ec2 ]; then
@@ -122,3 +129,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### start or connect to ssh-agent on linux machines
 ### only tested on ubuntu 12.04
 [[ "$(uname)" = "Linux" ]] && start-ssh-agent
+
+# remove duplicate entries from the PATH
+export PATH="$(consolidate-path)"
