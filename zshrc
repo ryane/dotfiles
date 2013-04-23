@@ -73,7 +73,7 @@ if [ -s $HOME/.dirs ]; then
 fi
 
 if [ -d ~/bin ]; then
-    export PATH=:~/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
+  export PATH=:~/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
 fi
 
 if [  -d ~/.ec2 ]; then
