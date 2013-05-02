@@ -173,9 +173,6 @@ autocmd BufReadPost *
       \   exe "normal g`\"" |
       \ endif"`'")"'")"
 
-" Indent p tags
-autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif"
-
 " open quickfix window after any grep invocation
 " https://github.com/tpope/vim-fugitive (see FAQ)
 autocmd QuickFixCmdPost *grep* cwindow
