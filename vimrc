@@ -167,6 +167,15 @@ map <leader>tm :tabmove
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
+" Jump to last cursor position unless it's invalid or in an event handler
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif"`'")"'")"
+
+" Indent p tags
+autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif"
+
 " open quickfix window after any grep invocation
 " https://github.com/tpope/vim-fugitive (see FAQ)
 autocmd QuickFixCmdPost *grep* cwindow
