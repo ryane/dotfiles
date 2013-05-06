@@ -16,6 +16,7 @@
   dc = diff --cached
   amend = commit --amend
   aa = add --all
+  ap = add -p
   pom = push origin master
   b = branch
   ds = diff --stat=160,120
