@@ -1,0 +1,19 @@
+[general]
+accounts = GMail
+pythonfile = ~/.offlineimap.py
+
+[Account GMail]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = /Volumes/DATA/Mail
+
+[Repository Remote]
+type = Gmail
+remotehost = imap.gmail.com
+remoteuser = ryanesc@gmail.com
+remotepasseval = get_imap_passwd()
+cert_fingerprint = b0ba392bba326e6feb1add4d04fa0fb86cd173fa
+readonly = True

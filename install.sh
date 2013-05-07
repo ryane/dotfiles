@@ -18,6 +18,8 @@ link_dotfile 'gitconfig'
 link_dotfile 'githelpers'
 link_dotfile 'gitignore'
 link_dotfile 'irbrc'
+link_dotfile 'offlineimaprc'
+link_dotfile 'offlineimap.py'
 link_dotfile 'tmux.conf'
 if [ "$(uname)" = "Darwin" ]; then
   link_dotfile 'tmux-osx.conf'
