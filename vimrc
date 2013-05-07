@@ -46,6 +46,7 @@ Bundle "jgdavey/tslime.vim"
 Bundle 'mattn/webapi-vim'
 Bundle "mattn/gist-vim"
 Bundle "wikitopian/hardmode"
+Bundle "tpope/vim-abolish"
 
 filetype plugin indent on         " Turn on file type detection.
 syntax enable                     " Turn on syntax highlighting.
