@@ -59,6 +59,7 @@ alias dbmigrate='rake db:migrate && rake db:test:prepare'
 alias log='~/cl/bin/logtodayone.rb'
 alias emacs='/usr/local/Cellar/emacs/24.2/bin/emacs -nw'
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
+alias l='ls'
 alias ag='nocorrect ag'
 alias vims='nocorrect vim -S'
 alias b="nocorrect bundle"
