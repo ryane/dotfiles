@@ -67,6 +67,7 @@ alias bi="bundle install"
 alias bl="bundle list"
 alias bp="bundle package"
 alias bu="bundle update"
+alias tmuxa="tmux attach -t"
 
 if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
