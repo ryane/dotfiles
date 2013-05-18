@@ -12,6 +12,7 @@ link_dotfile() {
   fi
 }
 
+# TODO: use authoritative list of dotfiles from somewhere
 link_dotfile 'bundle'
 link_dotfile 'ackrc'
 link_dotfile 'gitconfig'
