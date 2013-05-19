@@ -131,8 +131,9 @@ eval "$(rbenv init - zsh)"
 export PATH="/usr/local/heroku/bin:$PATH"
 
 ### start or connect to ssh-agent on linux machines
+### that are not running a Desktop session
 ### only tested on ubuntu 12.04
-[[ "$(uname)" = "Linux" ]] && start-ssh-agent
+[[ "$(uname)" = "Linux" && $DESKTOP_SESSION = "" ]] && start-ssh-agent
 
 # remove duplicate entries from the PATH
 export PATH="$(consolidate-path)"
