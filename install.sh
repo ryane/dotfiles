@@ -15,6 +15,7 @@ link_dotfile() {
 # TODO: use authoritative list of dotfiles from somewhere
 link_dotfile 'bundle'
 link_dotfile 'ackrc'
+link_dotfile 'gemrc'
 link_dotfile 'gitconfig'
 link_dotfile 'githelpers'
 link_dotfile 'gitignore'
