@@ -21,7 +21,7 @@ export ZSH_THEME="agnoster"
 #
 
 # oh-my-zsh plugins
-plugins=(vi-mode tmuxinator rails3 heroku git brews)
+plugins=(vi-mode tmuxinator rails3 heroku git brews git-flow)
 
 # custom functions
 fpath=(~/.zsh/func $fpath)
