@@ -318,9 +318,9 @@ map <leader>a :call RunTests('spec')<cr>
 
 function! GetBundledRspecCommand()
   if glob(".zeus.sock") != ""
-    let t:bundled_rspec_run_command = ":Dispatch zeus rspec "
+    let t:bundled_rspec_run_command = ":!zeus rspec "
   else
-    let t:bundled_rspec_run_command = ":Dispatch bundle exec rspec "
+    let t:bundled_rspec_run_command = ":!bundle exec rspec "
   endif
 endfunction
 
