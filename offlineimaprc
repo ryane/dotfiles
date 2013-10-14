@@ -15,5 +15,5 @@ type = Gmail
 remotehost = imap.gmail.com
 remoteuser = ryanesc@gmail.com
 remotepasseval = get_imap_passwd()
-cert_fingerprint = b0ba392bba326e6feb1add4d04fa0fb86cd173fa
+cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
 readonly = True
