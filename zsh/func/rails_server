@@ -1,0 +1,7 @@
+rails_server() {
+  if [ -S .zeus.sock ]; then
+    zeus server
+  else
+    command bundle exec rails server
+  fi
+}

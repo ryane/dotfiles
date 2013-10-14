@@ -21,11 +21,11 @@ export ZSH_THEME="agnoster"
 #
 
 # oh-my-zsh plugins
-plugins=(vi-mode tmuxinator rails3 heroku git brews git-flow)
+plugins=(vi-mode rails3 heroku git brews git-flow)
 
 # custom functions
 fpath=(~/.zsh/func $fpath)
-autoload -U rake rspec start-ssh-agent consolidate-path
+autoload -U rake rspec rails_server start-ssh-agent consolidate-path
 
 source $ZSH/oh-my-zsh.sh
 
