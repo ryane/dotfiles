@@ -43,10 +43,12 @@ Bundle "tpope/vim-obsession"
 Bundle "tpope/vim-dispatch"
 Bundle "vim-ruby/vim-ruby"
 Bundle "jgdavey/tslime.vim"
-Bundle 'mattn/webapi-vim'
+Bundle "mattn/webapi-vim"
 Bundle "mattn/gist-vim"
 Bundle "wikitopian/hardmode"
 Bundle "tpope/vim-abolish"
+Bundle "davidoc/taskpaper.vim"
+Bundle "christoomey/vim-tmux-navigator"
 
 filetype plugin indent on         " Turn on file type detection.
 syntax enable                     " Turn on syntax highlighting.
