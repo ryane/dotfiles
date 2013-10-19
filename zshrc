@@ -124,7 +124,6 @@ pman () {
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
 eval "$(rbenv init - zsh)"
 
 ### Added by the Heroku Toolbelt
