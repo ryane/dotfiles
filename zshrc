@@ -135,4 +135,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 [[ "$(uname)" = "Linux" && $DESKTOP_SESSION = "" ]] && start-ssh-agent
 
 # remove duplicate entries from the PATH
-export PATH="$(consolidate-path)"
+# export PATH="$(consolidate-path)"
