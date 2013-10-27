@@ -1,19 +1,44 @@
 [general]
-accounts = GMail
+ui = TTYUI
+accounts = Gmail
 pythonfile = ~/.offlineimap.py
+fsync = False
 
-[Account GMail]
-localrepository = Local
-remoterepository = Remote
+[Account Gmail]
+localrepository = GmailLocal
+remoterepository = GmailRemote
+status_backend = sqlite
 
-[Repository Local]
+[Repository GmailLocal]
 type = Maildir
-localfolders = /Volumes/DATA/Mail
+localfolders = ~/Dropbox/Mail/Gmail
+nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+                            'Sent':    '[Gmail]/Sent Mail',
+                            'Flagged': '[Gmail]/Starred',
+                            'Trash':   '[Gmail]/Trash',
+                            'Archive': '[Gmail]/All Mail',
+                            'Spam': '[Gmail]/Spam',
+                            }.get(folder, folder)
 
-[Repository Remote]
+[Repository GmailRemote]
+maxconnections = 1
 type = Gmail
 remotehost = imap.gmail.com
 remoteuser = ryanesc@gmail.com
-remotepasseval = get_imap_passwd()
+# remotepasseval = get_imap_passwd()
+remotepasseval = get_auth_info_pw("imap.gmail.com", "ryanesc@gmail.com", "993")
 cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
 readonly = False
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
+                            '[Gmail]/All Mail':  'Archive',
+                            '[Gmail]/Spam':      'Spam',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['Boomerang',
+                                             'Boomerang-Outbox',
+                                             'Boomerang-Outbox/Cancelled',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Spam',
+                                             ]
