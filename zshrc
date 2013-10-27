@@ -56,10 +56,9 @@ bindkey jk vi-cmd-mode
 setopt hist_ignore_all_dups
 
 alias g='grep -i'
-# alias e='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
 alias dbmigrate='rake db:migrate && rake db:test:prepare'
 alias log='~/cl/bin/logtodayone.rb'
-# alias emacs='/usr/local/Cellar/emacs/24.2/bin/emacs -nw'
+alias e='emacsclient -nw'
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
 alias l='ls'
 alias ag='nocorrect ag'
