@@ -1,0 +1,16 @@
+mail-status() {
+  status_command="$(which tail) /tmp/offlineimap.run"
+
+  if [ $(hostname) = "iron" ]; then
+    eval "$status_command"
+  else
+    mail_host="iron.local"
+    ping -c 1 -w 5 $mail_host &>/dev/null
+
+    if [ $? -ne 0 ] ; then
+      mail_host="helium.no-ip.biz"
+    fi
+
+    ssh $mail_host "$status_command"
+  fi
+}
