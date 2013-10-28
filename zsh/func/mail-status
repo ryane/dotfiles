@@ -7,10 +7,13 @@ mail-status() {
     mail_host="iron.local"
     ping -c 1 -w 5 $mail_host &>/dev/null
 
-    if [ $? -ne 0 ] ; then
+    ping_result=$?
+    echo $ping_result
+    if [ $ping_result -ne 0 ] ; then
       mail_host="helium.no-ip.biz"
     fi
 
+    echo "using host $mail_host"
     ssh $mail_host "$status_command"
   fi
 }
