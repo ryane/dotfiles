@@ -20,6 +20,10 @@ export ZSH_THEME="eastwood"
 #
 #
 
+# rbenv
+export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
+eval "$(rbenv init - zsh)"
+
 # oh-my-zsh plugins
 plugins=(vi-mode rails3 heroku git brews git-flow)
 
@@ -120,10 +124,6 @@ pman () {
 # tmuxinator
 # https://github.com/aziz/tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-# rbenv
-export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
-eval "$(rbenv init - zsh)"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
