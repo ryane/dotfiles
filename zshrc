@@ -133,5 +133,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### only tested on ubuntu 12.04
 [[ "$(uname)" = "Linux" && $DESKTOP_SESSION = "" ]] && start-ssh-agent
 
+# this is from https://github.com/sstephenson/rbenv/issues/369#issuecomment-20910233
+# it is giving me major problems since mavericks
+# I had to turn it off and
+# I had to copy /etc/zshenv to /etc/zprofile and tweak it to clear out the path
 # remove duplicate entries from the PATH
-export PATH="$(consolidate-path)"
+# export PATH="$(consolidate-path)"
