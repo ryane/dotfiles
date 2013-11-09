@@ -38,6 +38,7 @@ export DISABLE_AUTO_TITLE="true"
 
 # use vim by default
 export EDITOR="emacsclient -nw"
+export ALTERNATE_EDITOR="vim"
 
 # stop the annoying corrections
 unsetopt correct_all
