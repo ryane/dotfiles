@@ -14,5 +14,5 @@ def get_imap_passwd():
 def get_auth_info_pw(machine, login, port):
   s = "machine %s login %s port %s password ([^ ]*)\n" % (machine, login, port)
   p = re.compile(s)
-  authinfo = os.popen("gpg -q --no-tty -d ~/.authinfo.gpg").read()
+  authinfo = os.popen("/usr/local/bin/gpg -q --no-tty -d ~/.authinfo.gpg").read()
   return p.search(authinfo).group(1)

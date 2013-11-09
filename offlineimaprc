@@ -11,7 +11,7 @@ status_backend = sqlite
 
 [Repository GmailLocal]
 type = Maildir
-localfolders = ~/Dropbox/Mail/Gmail
+localfolders = ~/Mail/Gmail
 nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
                             'Sent':    '[Gmail]/Sent Mail',
                             'Flagged': '[Gmail]/Starred',
