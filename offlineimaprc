@@ -40,5 +40,4 @@ folderfilter = lambda folder: folder not in ['Boomerang',
                                              'Boomerang-Outbox',
                                              'Boomerang-Outbox/Cancelled',
                                              '[Gmail]/Important',
-                                             '[Gmail]/Spam',
                                              ]
