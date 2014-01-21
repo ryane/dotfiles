@@ -25,7 +25,7 @@ export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
 eval "$(rbenv init - zsh)"
 
 # oh-my-zsh plugins
-plugins=(vi-mode rails3 heroku git brews git-flow)
+plugins=(vi-mode rails heroku git brews)
 
 # custom functions
 fpath=(~/.zsh/func $fpath)
