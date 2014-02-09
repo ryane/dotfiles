@@ -147,7 +147,7 @@ prompt_context() {
   local user=`whoami`
 
   if [[ -n "$SSH_CLIENT" ]]; then
-    echo "%(!.%{%F{yellow}%}.)$user@%m "
+    echo "%{$fg[magenta]%}$user@%m %{$reset_color%}"
   fi
 }
 PROMPT='$(prompt_context)$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
