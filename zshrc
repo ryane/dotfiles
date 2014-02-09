@@ -141,3 +141,13 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # I had to copy /etc/zshenv to /etc/zprofile and tweak it to clear out the path
 # remove duplicate entries from the PATH
 # export PATH="$(consolidate-path)"
+
+# customize the prompt (the oh-my-zsh theme does most of the work)
+prompt_context() {
+  local user=`whoami`
+
+  if [[ -n "$SSH_CLIENT" ]]; then
+    echo "%(!.%{%F{yellow}%}.)$user@%m "
+  fi
+}
+PROMPT='$(prompt_context)$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
