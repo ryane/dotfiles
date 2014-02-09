@@ -80,10 +80,11 @@ if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
 fi
 
+# moved this to zshenv [2014-02-08 Sat 17:03]
 # make sure /usr/local/bin is in the path
-if [ -d /usr/local/bin ]; then
-  export PATH=:/usr/local/bin:$PATH
-fi
+# if [ -d /usr/local/bin ]; then
+#   export PATH=:/usr/local/bin:$PATH
+# fi
 
 # add your bin folder to the path, if you have it.
 # It's a good place to add all your scripts
