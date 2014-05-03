@@ -37,7 +37,7 @@ source $ZSH/oh-my-zsh.sh
 export DISABLE_AUTO_TITLE="true"
 
 # use vim by default
-export EDITOR="emacsclient -nw"
+export EDITOR="emacsclient"
 export ALTERNATE_EDITOR="vim"
 
 # stop the annoying corrections
@@ -63,7 +63,7 @@ setopt hist_ignore_all_dups
 alias g='grep -i'
 alias dbmigrate='rake db:migrate && rake db:test:prepare'
 alias log='~/cl/bin/logtodayone.rb'
-alias e='emacsclient -nw'
+alias e='emacsclient -n'
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
 alias l='ls'
 alias ag='nocorrect ag'
