@@ -1,8 +1,16 @@
-mkdir -p ~/.vim/colors
-pushd ~/.vim/colors
-curl -O https://raw.github.com/chriskempson/vim-tomorrow-theme/master/colors/Tomorrow-Night-Blue.vim
-curl -O https://raw.github.com/chriskempson/vim-tomorrow-theme/master/colors/Tomorrow-Night-Bright.vim
-curl -O https://raw.github.com/chriskempson/vim-tomorrow-theme/master/colors/Tomorrow-Night-Eighties.vim
-curl -O https://raw.github.com/chriskempson/vim-tomorrow-theme/master/colors/Tomorrow-Night.vim
-curl -O https://raw.github.com/chriskempson/vim-tomorrow-theme/master/colors/Tomorrow.vim
-popd
+colors_dir=~/.vim/colors/
+
+files=(
+    Tomorrow-Night-Blue.vim
+    Tomorrow-Night-Bright.vim
+    Tomorrow-Night-Eighties.vim
+    Tomorrow-Night.vim
+    Tomorrow.vim
+)
+url_root="https://raw.githubusercontent.com/chriskempson/vim-tomorrow-theme/master/colors/"
+
+mkdir -p $colors_dir
+
+for i in ${files[@]}; do
+    curl $url_root$i -o $colors_dir$i
+done
