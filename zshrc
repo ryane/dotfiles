@@ -100,17 +100,6 @@ if [  -d ~/.ec2 ]; then
     export PATH=:$EC2_HOME/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
 fi
 
-# fix for emacs tramp mode
-if [ "$TERM" = "dumb" ]
-then
-  unsetopt zle
-  unsetopt prompt_cr
-  unsetopt prompt_subst
-  unfunction precmd
-  unfunction preexec
-  PS1='$ '
-fi
-
 export LEDGER_FILE=~/Documents/finance/ledger/main.dat
 
 # open man page in Preview.app
@@ -151,3 +140,14 @@ prompt_context() {
   fi
 }
 PROMPT='$(prompt_context)$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
+
+# fix for emacs tramp mode
+if [ "$TERM" = "dumb" ]
+then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  unfunction precmd
+  unfunction preexec
+  PS1='$ '
+fi
