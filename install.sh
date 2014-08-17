@@ -43,6 +43,7 @@ link_dotfile 'irbrc'
 link_dotfile 'muttrc'
 link_dotfile 'offlineimaprc'
 link_dotfile 'offlineimap.py'
+link_dotfile 'pryrc'
 link_dotfile 'tmux.conf'
 if [ "$(uname)" = "Darwin" ]; then
   link_dotfile 'tmux-osx.conf'
