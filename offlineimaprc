@@ -8,6 +8,8 @@ fsync = False
 localrepository = GmailLocal
 remoterepository = GmailRemote
 status_backend = sqlite
+autorefresh = 10
+quick = 5
 
 [Repository GmailLocal]
 type = Maildir
@@ -27,7 +29,8 @@ remotehost = imap.gmail.com
 remoteuser = ryanesc@gmail.com
 # remotepasseval = get_imap_passwd()
 remotepasseval = get_auth_info_pw("imap.gmail.com", "ryanesc@gmail.com", "993")
-cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
+# cert_fingerprint = 93d0b91a54b9f5adfe2e4a59286484339bf6470c
+sslcacertfile = /usr/local/share/ca-bundle.crt
 readonly = False
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Sent Mail': 'Sent',
