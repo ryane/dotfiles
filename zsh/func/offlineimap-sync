@@ -1,0 +1,3 @@
+offlineimap-sync() {
+    kill -s USR1 `offlineimap-pid`
+}

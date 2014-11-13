@@ -29,7 +29,7 @@ plugins=(vi-mode rails heroku git brews)
 
 # custom functions
 fpath=(~/.zsh/func $fpath)
-autoload -U rake rspec rails_server start-ssh-agent consolidate-path emacs-config mail-status offlineimap-pid offlineimap-kill offlineimap-stop offlineimap-start
+autoload -U rake rspec rails_server start-ssh-agent consolidate-path emacs-config mail-status offlineimap-pid offlineimap-kill offlineimap-stop offlineimap-start offlineimap-sync
 
 source $ZSH/oh-my-zsh.sh
 
