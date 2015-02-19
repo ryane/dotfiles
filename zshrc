@@ -37,7 +37,7 @@ source $ZSH/oh-my-zsh.sh
 export DISABLE_AUTO_TITLE="true"
 
 # use vim by default
-export EDITOR="emacsclient"
+export EDITOR="emacsclient -t"
 export ALTERNATE_EDITOR="vim"
 
 # stop the annoying corrections
