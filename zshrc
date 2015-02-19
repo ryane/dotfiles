@@ -101,7 +101,7 @@ if [  -d ~/.ec2 ]; then
     export PATH=:$EC2_HOME/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
 fi
 
-export LEDGER_FILE=~/Documents/finance/ledger/main.dat
+export LEDGER_FILE=~/Dropbox/Documents/Finance/Ledger/main.dat
 
 # open man page in Preview.app
 # http://superuser.com/questions/52483/terminal-tips-and-tricks-for-mac-os-x
