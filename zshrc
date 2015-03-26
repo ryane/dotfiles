@@ -89,18 +89,14 @@ fi
 #   export PATH=:/usr/local/bin:$PATH
 # fi
 
+if [ -d /usr/local/sbin ]; then
+  export PATH=:/usr/local/sbin:$PATH
+fi
+
 # add your bin folder to the path, if you have it.
 # It's a good place to add all your scripts
 if [ -d ~/bin ]; then
   export PATH=:~/bin:./bin:$PATH
-fi
-
-if [  -d ~/.ec2 ]; then
-    export EC2_HOME=~/.ec2/ec2-api-tools-1.3-53907
-    export EC2_PRIVATE_KEY=~/.ssh/pk-ryanesc-ec2.pem
-    export EC2_CERT=~/.ssh/cert-ryanesc-ec2.pem
-    export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
-    export PATH=:$EC2_HOME/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
 fi
 
 export LEDGER_FILE=~/Dropbox/Documents/Finance/Ledger/main.dat
