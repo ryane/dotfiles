@@ -77,6 +77,7 @@ alias bl="bundle list"
 alias bp="bundle package"
 alias bu="bundle update"
 alias tmuxa="tmux attach -t"
+alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'state|to\ full|to\ empty|percentage'"
 
 if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
