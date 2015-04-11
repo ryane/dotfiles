@@ -41,6 +41,6 @@ branches = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:rel
 [merge]
 tool = vimdiff
 [push]
-default = simple
+default = current
 [github]
 user = ryane
