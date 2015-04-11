@@ -64,7 +64,7 @@ alias g='grep -i'
 alias dbmigrate='rake db:migrate && rake db:test:prepare'
 alias log='~/cl/bin/logtodayone.rb'
 alias e='emacsclient -n'
-alias ec='emacsclient'
+alias ec='emacsclient -c -n'
 alias et='emacsclient -t'
 alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
 alias l='ls'
@@ -77,6 +77,7 @@ alias bl="bundle list"
 alias bp="bundle package"
 alias bu="bundle update"
 alias tmuxa="tmux attach -t"
+alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'state|to\ full|to\ empty|percentage'"
 
 if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
