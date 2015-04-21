@@ -128,7 +128,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 ### start or connect to ssh-agent on linux machines
 ### that are not running a Desktop session
 ### only tested on ubuntu 12.04
-[[ "$(uname)" = "Linux" && $DESKTOP_SESSION = "" ]] && start-ssh-agent
+# [[ "$(uname)" = "Linux" && $DESKTOP_SESSION = "" ]] && start-ssh-agent
 
 # this is from https://github.com/sstephenson/rbenv/issues/369#issuecomment-20910233
 # it is giving me major problems since mavericks
