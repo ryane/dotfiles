@@ -21,8 +21,15 @@ export ZSH_THEME="eastwood"
 #
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
-eval "$(rbenv init - zsh)"
+
+if [ -d /usr/local/rbenv ]; then
+    export RBENV_ROOT=/usr/local/rbenv
+    export PATH="$RBENV_ROOT/bin:$PATH"
+    eval "$(rbenv init - zsh)"
+elif [ -d $HOME/.rbenv ]; then
+    export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
+    eval "$(rbenv init - zsh)"
+fi
 
 # oh-my-zsh plugins
 plugins=(vi-mode rails heroku git brews)
