@@ -36,6 +36,11 @@ if [ -d /usr/local/go/bin ]; then
   export PATH=$PATH:/usr/local/go/bin
 fi
 
+if [ -d ~/Projects/golang ]; then
+    export GOPATH=~/Projects/golang/
+    export PATH=$PATH:$GOPATH/bin
+fi
+
 # oh-my-zsh plugins
 plugins=(vi-mode rails heroku git brews)
 
