@@ -95,6 +95,7 @@ alias bp="bundle package"
 alias bu="bundle update"
 alias tmuxa="tmux attach -t"
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'state|to\ full|to\ empty|percentage'"
+# alias docker-cleanup="docker rm $(docker ps -aq); docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
 
 if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
@@ -167,3 +168,14 @@ then
   unfunction preexec
   PS1='$ '
 fi
+
+if [ -d ~/Projects/google-cloud-sdk ];
+then
+    # The next line updates PATH for the Google Cloud SDK.
+    source ~/Projects/google-cloud-sdk/path.zsh.inc
+    # The next line enables shell command completion for gcloud.
+    source ~/Projects/google-cloud-sdk/completion.zsh.inc
+fi
+
+# added by travis gem
+[ -f /Users/ryan/.travis/travis.sh ] && source /Users/ryan/.travis/travis.sh
