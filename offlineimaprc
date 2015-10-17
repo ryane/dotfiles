@@ -1,12 +1,20 @@
 [general]
 ui = TTYUI
-accounts = Gmail
+accounts = Gmail, Asteris
 pythonfile = ~/.offlineimap.py
+maxsyncaccounts = 2
 fsync = False
 
 [Account Gmail]
 localrepository = GmailLocal
 remoterepository = GmailRemote
+status_backend = sqlite
+autorefresh = 120
+quick = 5
+
+[Account Asteris]
+localrepository = AsterisLocal
+remoterepository = AsterisRemote
 status_backend = sqlite
 autorefresh = 10
 quick = 5
@@ -23,15 +31,47 @@ nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
                             }.get(folder, folder)
 
 [Repository GmailRemote]
-maxconnections = 1
+maxconnections = 2
 type = Gmail
 remotehost = imap.gmail.com
 remoteuser = ryanesc@gmail.com
-# remotepasseval = get_imap_passwd()
-remotepasseval = get_auth_info_pw("imap.gmail.com", "ryanesc@gmail.com", "993")
+remotepasseval = get_imap_passwd("Gmail Offlineimap Application Password")
+# remotepasseval = get_auth_info_pw("imap.gmail.com", "ryanesc@gmail.com", "993")
 # cert_fingerprint = 93d0b91a54b9f5adfe2e4a59286484339bf6470c
 sslcacertfile = /usr/local/share/ca-bundle.crt
-readonly = True
+readonly = False
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
+                            '[Gmail]/All Mail':  'Archive',
+                            '[Gmail]/Spam':      'Spam',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['Boomerang',
+                                             'Boomerang-Outbox',
+                                             'Boomerang-Outbox/Cancelled',
+                                             '[Gmail]/Important',
+                                             ]
+
+[Repository AsterisLocal]
+type = Maildir
+localfolders = ~/Mail/Asteris
+nametrans = lambda folder: {'Drafts':  '[Gmail]/Drafts',
+                            'Sent':    '[Gmail]/Sent Mail',
+                            'Flagged': '[Gmail]/Starred',
+                            'Trash':   '[Gmail]/Trash',
+                            'Archive': '[Gmail]/All Mail',
+                            'Spam': '[Gmail]/Spam',
+                            }.get(folder, folder)
+
+[Repository AsterisRemote]
+maxconnections = 2
+type = Gmail
+remotehost = imap.gmail.com
+remoteuser = ryan@aster.is
+remotepasseval = get_imap_passwd("Aster.is email password")
+sslcacertfile = /usr/local/share/ca-bundle.crt
+readonly = False
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Sent Mail': 'Sent',
                             '[Gmail]/Starred':   'Flagged',
