@@ -1,6 +1,9 @@
 [user]
 name = ryane
 email = ryanesc@gmail.com
+signingkey = D42A593D
+[commit]
+gpgsign = true
 [color]
 ui = auto
 [core]
