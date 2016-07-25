@@ -26,12 +26,7 @@ xmodmap -e 'keycode any = Return'
 
 # Left control acts as Escape when standalone
 # Return key still works
-# if [ ! "$(pidof xcape)" ]
-# then
-#     echo "ubuntu_keybindings: running xcape" >> /tmp/ubuntu_keybindings.log
-#     xcape -t 200 -e 'Control_L=Escape;0x1234=Return'
-# fi
-
+echo "ubuntu_keybindings: running xcape" >> /tmp/ubuntu_keybindings.log
 killall xcape || true
 xcape -t 200 -e 'Control_L=Escape;0x1234=Return'
 
