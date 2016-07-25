@@ -179,3 +179,16 @@ fi
 
 # added by travis gem
 [ -f /Users/ryan/.travis/travis.sh ] && source /Users/ryan/.travis/travis.sh
+
+# i3 on xps13/linux settings
+if [ "$DESKTOP_SESSION" = "i3" ];
+then
+    # useful screen res on xps13 [2016-07-24 Sun 22:40]
+    xrandr --output eDP1 --mode 2048x1152
+
+    # setup keybings [2016-07-24 Sun 22:40]
+    /home/ryan/.dotfiles/ubuntu_keybindings.sh
+
+    # setup ssh-agent
+    export $(gnome-keyring-daemon -s)
+fi
