@@ -8,3 +8,4 @@ build/*
 *.perspective
 *.perspectivev3
 *.tm_build_errors
+*.stfolder
