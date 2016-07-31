@@ -147,3 +147,24 @@ fi
 
 # added by travis gem
 [ -f /Users/ryan/.travis/travis.sh ] && source /Users/ryan/.travis/travis.sh
+
+# [[ "$(uname)" = "Linux" ]] && export TERM=xterm-256color
+
+if [ "$(uname)" = "Darwin" ];
+then
+    # ssh agent
+    start-ssh-agent
+
+    # gpg agent
+    if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
+        source ~/.gnupg/.gpg-agent-info
+        export GPG_AGENT_INFO
+        export GPG_TTY=$(tty)
+    else
+        eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+    fi
+
+fi
+
+export NVM_DIR="/Users/ryan/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
