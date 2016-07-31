@@ -78,6 +78,12 @@ alias tmuxa="tmux attach -t"
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'state|to\ full|to\ empty|percentage'"
 # alias docker-cleanup="docker rm $(docker ps -aq); docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
 
+alias y2j='yaml2json'
+alias kc='kubectl'
+alias kcg='kubectl get --show-labels'
+alias kcd='kubectl describe'
+alias kcl='kubectl logs'
+
 if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
 fi
@@ -99,7 +105,7 @@ pman () {
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 ### start or connect to ssh-agent on linux machines
-### that are not running a Desktop session
+
 ### only tested on ubuntu 12.04
 # [[ "$(uname)" = "Linux" && $DESKTOP_SESSION = "" ]] && start-ssh-agent
 
