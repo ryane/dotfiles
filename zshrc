@@ -20,27 +20,6 @@ export ZSH_THEME="eastwood"
 #
 #
 
-# rbenv
-
-if [ -d /usr/local/rbenv ]; then
-    export RBENV_ROOT=/usr/local/rbenv
-    export PATH="$RBENV_ROOT/bin:$PATH"
-    eval "$(rbenv init - zsh)"
-elif [ -d $HOME/.rbenv ]; then
-    export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
-    eval "$(rbenv init - zsh)"
-fi
-
-# golang
-if [ -d /usr/local/go/bin ]; then
-  export PATH=$PATH:/usr/local/go/bin
-fi
-
-if [ -d ~/Projects/golang ]; then
-    export GOPATH=~/Projects/golang/
-    export PATH=$PATH:$GOPATH/bin
-fi
-
 # oh-my-zsh plugins
 plugins=(vi-mode rails heroku git brews)
 
@@ -101,22 +80,6 @@ if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
 fi
 
-# moved this to zshenv [2014-02-08 Sat 17:03]
-# make sure /usr/local/bin is in the path
-# if [ -d /usr/local/bin ]; then
-#   export PATH=:/usr/local/bin:$PATH
-# fi
-
-if [ -d /usr/local/sbin ]; then
-  export PATH=:/usr/local/sbin:$PATH
-fi
-
-# add your bin folder to the path, if you have it.
-# It's a good place to add all your scripts
-if [ -d ~/bin ]; then
-  export PATH=:~/bin:./bin:$PATH
-fi
-
 export LEDGER_FILE=~/Dropbox/Documents/Finance/Ledger/main.dat
 
 # open man page in Preview.app
@@ -132,9 +95,6 @@ pman () {
 # tmuxinator
 # https://github.com/aziz/tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 ### start or connect to ssh-agent on linux machines
 ### that are not running a Desktop session
@@ -179,16 +139,3 @@ fi
 
 # added by travis gem
 [ -f /Users/ryan/.travis/travis.sh ] && source /Users/ryan/.travis/travis.sh
-
-# i3 on xps13/linux settings
-if [ "$DESKTOP_SESSION" = "i3" ];
-then
-    # useful screen res on xps13 [2016-07-24 Sun 22:40]
-    xrandr --output eDP1 --mode 2048x1152
-
-    # setup keybings [2016-07-24 Sun 22:40]
-    /home/ryan/.dotfiles/ubuntu_keybindings.sh
-
-    # setup ssh-agent
-    export $(gnome-keyring-daemon -s)
-fi
