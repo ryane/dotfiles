@@ -7,7 +7,7 @@ gpgsign = true
 [color]
 ui = auto
 [core]
-excludesfile = /Users/ryan/.gitignore
+excludesfile = ~/.gitignore
 [alias]
 ci = commit -v
 st = status -sb
