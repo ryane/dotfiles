@@ -16,14 +16,15 @@ if [ -d ~/bin ]; then
 fi
 
 # rbenv
-if [ -d /usr/local/rbenv ]; then
-    export RBENV_ROOT=/usr/local/rbenv
-    export PATH="$RBENV_ROOT/bin:$PATH"
-    eval "$(rbenv init - zsh)"
-elif [ -d $HOME/.rbenv ]; then
-    export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
-    eval "$(rbenv init - zsh)"
-fi
+# [2016-08-18 Thu 11:56] haven't been using it for a while
+# if [ -d /usr/local/rbenv ]; then
+#     export RBENV_ROOT=/usr/local/rbenv
+#     export PATH="$RBENV_ROOT/bin:$PATH"
+#     eval "$(rbenv init - zsh --no-rehash)"
+# elif [ -d $HOME/.rbenv ]; then
+#     export PATH="$HOME/.rbenv/bin:.bundle/binstubs:$PATH"
+#     eval "$(rbenv init - zsh --no-rehash)"
+# fi
 
 # golang
 if [ -d /usr/local/go/bin ]; then
