@@ -47,3 +47,5 @@ tool = vimdiff
 default = current
 [github]
 user = ryane
+[gpg]
+	program = gpg2
