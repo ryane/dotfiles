@@ -165,6 +165,3 @@ then
     fi
 
 fi
-
-export NVM_DIR="/Users/ryan/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -41,6 +41,12 @@ if [ -d /usr/local/heroku/bin ]; then
     export PATH="/usr/local/heroku/bin:$PATH"
 fi
 
+# NVM
+if [ -d "${HOME}/.nvm" ]; then
+    export NVM_DIR="${HOME}/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+fi
+
 # i3 on xps13/linux settings
 if [ "$DESKTOP_SESSION" = "i3" ];
 then
