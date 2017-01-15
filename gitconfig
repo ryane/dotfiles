@@ -46,6 +46,9 @@ tool = vimdiff
 [push]
 default = current
 [github]
-user = ryane
+  user = ryane
 [gpg]
-	program = gpg2
+  program = gpg2
+
+[include]
+  path = ~/.gitconfig-secret
