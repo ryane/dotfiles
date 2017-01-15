@@ -57,20 +57,20 @@ then
     /home/ryan/.dotfiles/ubuntu_keybindings.sh
 
     # setup mouse buttons (thinkpad trackpad)
-    xinput list "TPPS/2 IBM TrackPoint" > /dev/null 2>&1 && xinput set-button-map "TPPS/2 IBM TrackPoint" 1 1 3 4 5 6 7
+    # xinput list "TPPS/2 IBM TrackPoint" > /dev/null 2>&1 && xinput set-button-map "TPPS/2 IBM TrackPoint" 1 1 3 4 5 6 7
 
-    # setup microsoft wireless mouse natural scrolling
-    # I'm sure there is a cleaner way to do this:
-    xinput list \
-        | grep "Microsoft.*2\.4.*pointer" \
-        | grep -o -P "id=\d+" \
-        | grep -o -P "\d+" \
-        | while read -r deviceid; do
-        xinput set-prop "$deviceid" "Evdev Scrolling Distance" -1 -1 -1
-    done
+    # # setup microsoft wireless mouse natural scrolling
+    # # I'm sure there is a cleaner way to do this:
+    # xinput list \
+    #     | grep "Microsoft.*2\.4.*pointer" \
+    #     | grep -o -P "id=\d+" \
+    #     | grep -o -P "\d+" \
+    #     | while read -r deviceid; do
+    #     xinput set-prop "$deviceid" "Evdev Scrolling Distance" -1 -1 -1
+    # done
 
 
 
-    # setup ssh-agent
-    export $(gnome-keyring-daemon -s)
+    # # setup ssh-agent
+    # export $(gnome-keyring-daemon -s)
 fi
