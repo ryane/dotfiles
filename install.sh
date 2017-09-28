@@ -19,13 +19,13 @@ contains() {
 
 link_dotfile() {
   dotfile=$1
+  dest=${2:-~/.$dotfile}
 
   if contains args "--skip-$dotfile" ; then
     echo "Skipping $dotfile"
     return 0
   fi
 
-  dest=~/.$dotfile
   if [ ! -e $dest ]; then
     echo "Linking $dest"
     ln -s $dotfiles_dir/$dotfile $dest
@@ -47,6 +47,8 @@ link_dotfile 'pryrc'
 link_dotfile 'tmux.conf'
 if [ "$(uname)" = "Darwin" ]; then
   link_dotfile 'tmux-osx.conf'
+  # depends on https://github.com/ashfinal/awesome-hammerspoon
+  link_dotfile 'hammerspoon/awesomeconfig.lua' ~/.hammerspoon/private/awesomeconfig.lua
 fi
 link_dotfile 'vimrc'
 link_dotfile 'zshenv'
