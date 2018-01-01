@@ -57,7 +57,10 @@ then
     /home/ryan/.dotfiles/ubuntu_keybindings.sh
 
     # setup mouse buttons (thinkpad trackpad)
-    xinput list "TPPS/2 IBM TrackPoint" > /dev/null 2>&1 && xinput set-button-map "TPPS/2 IBM TrackPoint" 1 1 3 4 5 6 7
+    xinput list "SynPS/2 Synaptics TouchPad" > /dev/null 2>&1 && \
+        xinput set-button-map "SynPS/2 Synaptics TouchPad" 1 1 3 4 5 6 7
+    xinput list "TPPS/2 IBM TrackPoint" > /dev/null 2>&1 && \
+        xinput set-button-map "TPPS/2 IBM TrackPoint" 1 1 3 4 5 6 7
 
     # setup microsoft wireless mouse natural scrolling
     # I'm sure there is a cleaner way to do this:
