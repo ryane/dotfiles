@@ -52,3 +52,10 @@ default = current
 
 [include]
   path = ~/.gitconfig-secret
+
+# I added this for some reason and I can't remember why. remove and see if I
+# notice anything break
+# [url "https://github.com"]
+#   insteadOf = git://github.com
+# [credential]
+#   helper = cache --timeout 3600
