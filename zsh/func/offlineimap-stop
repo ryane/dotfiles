@@ -1,3 +1,0 @@
-offlineimap-stop() {
-    launchctl unload ~/Library/LaunchAgents/offlineimap.plist
-}

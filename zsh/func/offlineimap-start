@@ -1,3 +1,0 @@
-offlineimap-start() {
-    launchctl load ~/Library/LaunchAgents/offlineimap.plist
-}

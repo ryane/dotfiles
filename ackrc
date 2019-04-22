@@ -1,5 +1,0 @@
---type-add=ruby=.haml,.rake,.rsel
---type-add=html=.html.erb,.html.haml,.handlebars,.hbs
---ignore-dir=log
---ignore-dir=.bundle
---ignore-dir=.idea

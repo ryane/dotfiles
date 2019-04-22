@@ -1,3 +1,0 @@
-offlineimap-pid() {
-    ps aux | grep "python /usr/local/bin/offlineimap" | grep -v grep | awk '{ print $2 }'
-}

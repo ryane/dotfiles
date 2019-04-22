@@ -1,3 +1,0 @@
-offlineimap-kill() {
-    kill -9 `offlineimap-pid`
-}

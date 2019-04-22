@@ -33,24 +33,8 @@ link_dotfile() {
 }
 
 # TODO: use authoritative list of dotfiles from somewhere
-link_dotfile 'bundle'
-link_dotfile 'ackrc'
-link_dotfile 'gemrc'
 link_dotfile 'gitconfig'
 link_dotfile 'githelpers'
 link_dotfile 'gitignore'
-link_dotfile 'irbrc'
-link_dotfile 'muttrc'
-link_dotfile 'offlineimaprc'
-link_dotfile 'offlineimap.py'
-link_dotfile 'pryrc'
 link_dotfile 'tmux.conf'
-if [ "$(uname)" = "Darwin" ]; then
-  link_dotfile 'tmux-osx.conf'
-  # depends on https://github.com/ashfinal/awesome-hammerspoon
-  link_dotfile 'hammerspoon/awesomeconfig.lua' ~/.hammerspoon/private/awesomeconfig.lua
-fi
-link_dotfile 'vimrc'
-link_dotfile 'zshenv'
 link_dotfile 'zshrc'
-link_dotfile 'zsh'

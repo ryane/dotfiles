@@ -1,9 +1,5 @@
 # -*- mode: shell-script -*-
 
-[[ "$(uname)" = "Darwin" ]] && source ~/.zshenv
-
-# [[ "$(uname)" = "Linux" ]] && export TERM=xterm-256color
-
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
