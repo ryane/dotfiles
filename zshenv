@@ -48,8 +48,7 @@ if [ -d "${HOME}/.nvm" ]; then
 fi
 
 # i3 on xps13/linux settings
-if [ "$DESKTOP_SESSION" = "i3" ];
-then
+if [ "$DESKTOP_SESSION" = "i3" ] || [ "$DESKTOP_SESSION" = "i3-with-shmlog" ] || [ "$DESKTOP_SESSION" = "i3-gnome" ]; then
     # useful screen res on xps13 [2016-07-24 Sun 22:40]
     # xrandr --output eDP1 --mode 2048x1152
 
@@ -72,7 +71,12 @@ then
         xinput set-prop "$deviceid" "Evdev Scrolling Distance" -1 -1 -1
     done
 
-
+    # setup thinkpad t460s trackpad
+    xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Palm Detection" 1
+    xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Area" 2700, 4400, 0, 0
+    xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114, -114
+    # synclient VertScrollDelta=-114
+    # synclient HorizScrollDelta=-114
 
     # setup ssh-agent
     export $(gnome-keyring-daemon -s)
