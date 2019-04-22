@@ -8,6 +8,8 @@
 
 # set -ex
 
+export DISPLAY=:0.0
+
 echo "ubuntu_keybindings: starting" >> /tmp/ubuntu_keybindings.log
 
 # make caps lock an additional control
