@@ -23,7 +23,7 @@ export ZSH_THEME="eastwood"
 #
 
 # oh-my-zsh plugins
-plugins=(vi-mode rails heroku git brews)
+plugins=(vi-mode rails heroku git brews kube-ps1)
 
 # custom functions
 fpath=(~/.zsh/func $fpath)
@@ -77,12 +77,14 @@ alias bu="bundle update"
 alias tmuxa="tmux attach -t"
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'state|to\ full|to\ empty|percentage'"
 # alias docker-cleanup="docker rm $(docker ps -aq); docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
+alias clip="xclip -selection c"
 
 alias y2j='yaml2json'
 alias kc='kubectl'
 alias kcg='kubectl get --show-labels'
 alias kcd='kubectl describe'
 alias kcl='kubectl logs'
+alias kail="docker run --rm -it -v ~/.kube:/root/.kube -v /etc/hosts:/etc/hosts abozanich/kail"
 
 if [ -s $HOME/.dirs ]; then
   source $HOME/.dirs
@@ -166,5 +168,9 @@ then
 
 fi
 
-# kubectl shell autocompletion
+export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
+export NVM_DIR="${HOME}/.nvm"
+[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+ #kubectl shell autocompletion
 which kubectl > /dev/null 2>&1 && source <(kubectl completion zsh)
