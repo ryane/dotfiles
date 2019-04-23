@@ -1,172 +1,93 @@
-# -*- mode: shell-script -*-
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh configuration.
+# Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="eastwood"
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-# Set to this to use case-sensitive completion
-# export CASE_SENSITIVE="true"
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# Comment this out to disable weekly auto-update checks
-# export DISABLE_AUTO_UPDATE="true"
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-# Uncomment following line if you want to disable colors in ls
-# export DISABLE_LS_COLORS="true"
-#
-#
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# oh-my-zsh plugins
-plugins=(vi-mode rails heroku git brews kube-ps1)
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# custom functions
-fpath=(~/.zsh/func $fpath)
-autoload -U rake rspec rails_server start-ssh-agent consolidate-path emacs-config mail-status offlineimap-pid offlineimap-kill offlineimap-stop offlineimap-start offlineimap-sync _kubectx _kubens
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# prevent renaming in tmux
-export DISABLE_AUTO_TITLE="true"
+# User configuration
 
-# use vim by default
-export EDITOR="emacsclient -t"
-export ALTERNATE_EDITOR="vim"
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# stop the annoying corrections
-unsetopt correct_all
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-# vi mode
-# re-enable some useful bindings
-bindkey '^P' up-history
-bindkey '^N' down-history
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
-# use incremental search
-bindkey "^R" history-incremental-search-backward
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
-# add some readline keys back
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-
-bindkey "^F" vi-cmd-mode
-bindkey jk vi-cmd-mode
-
-setopt hist_ignore_all_dups
-
-alias g='grep -i'
-alias dbmigrate='rake db:migrate && rake db:test:prepare'
-alias log='~/cl/bin/logtodayone.rb'
-alias e='emacsclient -n'
-alias ec='emacsclient -c -n'
-alias et='emacsclient -t'
-alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
-alias l='ls'
-alias ag='nocorrect ag'
-alias vims='nocorrect vim -S'
-alias b="nocorrect bundle"
-alias be="bundle exec"
-alias bi="bundle install"
-alias bl="bundle list"
-alias bp="bundle package"
-alias bu="bundle update"
-alias tmuxa="tmux attach -t"
-alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'state|to\ full|to\ empty|percentage'"
-# alias docker-cleanup="docker rm $(docker ps -aq); docker rmi $(docker images | grep '^<none>' | awk '{print $3}')"
-alias clip="xclip -selection c"
-
-alias y2j='yaml2json'
-alias kc='kubectl'
-alias kcg='kubectl get --show-labels'
-alias kcd='kubectl describe'
-alias kcl='kubectl logs'
-alias kail="docker run --rm -it -v ~/.kube:/root/.kube -v /etc/hosts:/etc/hosts abozanich/kail"
-
-if [ -s $HOME/.dirs ]; then
-  source $HOME/.dirs
-fi
-
-export LEDGER_FILE=~/Dropbox/Documents/Finance/Ledger/main.dat
-
-# open man page in Preview.app
-# http://superuser.com/questions/52483/terminal-tips-and-tricks-for-mac-os-x
-pman () {
-    man -t "${1}" | open -f -a /Applications/Preview.app
-}
-
-# na
-# https://github.com/ttscoff/na
-[[ -s "/Users/ryan/bin/na.sh" ]] && source "/Users/ryan/bin/na.sh"
-
-# tmuxinator
-# https://github.com/aziz/tmuxinator
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
-### start or connect to ssh-agent on linux machines
-
-### only tested on ubuntu 12.04
-# [[ "$(uname)" = "Linux" && $DESKTOP_SESSION = "" ]] && start-ssh-agent
-
-# this is from https://github.com/sstephenson/rbenv/issues/369#issuecomment-20910233
-# it is giving me major problems since mavericks
-# I had to turn it off and
-# I had to copy /etc/zshenv to /etc/zprofile and tweak it to clear out the path
-# remove duplicate entries from the PATH
-# export PATH="$(consolidate-path)"
-
-# customize the prompt (the oh-my-zsh theme does most of the work)
-prompt_context() {
-  local user=`whoami`
-
-  if [[ -n "$SSH_CLIENT" ]]; then
-    echo "%{$fg[magenta]%}$user@%m %{$reset_color%}"
-  fi
-}
-PROMPT='$(prompt_context)$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
-
-# fix for emacs tramp mode
-if [ "$TERM" = "dumb" ]
-then
-  unsetopt zle
-  unsetopt prompt_cr
-  unsetopt prompt_subst
-  unfunction precmd
-  unfunction preexec
-  PS1='$ '
-fi
-
-if [ -d ~/Projects/google-cloud-sdk ];
-then
-    # The next line updates PATH for the Google Cloud SDK.
-    source ~/Projects/google-cloud-sdk/path.zsh.inc
-    # The next line enables shell command completion for gcloud.
-    source ~/Projects/google-cloud-sdk/completion.zsh.inc
-fi
-
-# added by travis gem
-[ -f /Users/ryan/.travis/travis.sh ] && source /Users/ryan/.travis/travis.sh
-
-# [[ "$(uname)" = "Linux" ]] && export TERM=xterm-256color
-
-if [ "$(uname)" = "Darwin" ];
-then
-    # ssh agent
-    start-ssh-agent
-
-    # gpg agent
-    if test -f ~/.gnupg/.gpg-agent-info -a -n "$(pgrep gpg-agent)"; then
-        source ~/.gnupg/.gpg-agent-info
-        export GPG_AGENT_INFO
-        export GPG_TTY=$(tty)
-    else
-        eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-    fi
-
-fi
-
-export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
-export NVM_DIR="${HOME}/.nvm"
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
- #kubectl shell autocompletion
-which kubectl > /dev/null 2>&1 && source <(kubectl completion zsh)
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
