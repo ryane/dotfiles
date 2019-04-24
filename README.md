@@ -32,4 +32,4 @@ This was poached from https://github.com/garybernhardt/dotfiles/blob/master/.git
 
 ### zshrc
 
-### zsh
+### zshenv

@@ -62,32 +62,52 @@ ZSH_THEME="eastwood"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(vi-mode git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# use emacs by default
+export EDITOR="emacsclient -t"
+export ALTERNATE_EDITOR="vim"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# vi mode
+# re-enable some useful bindings
+bindkey '^P' up-history
+bindkey '^N' down-history
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+# use incremental search
+bindkey "^R" history-incremental-search-backward
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# add some readline keys back
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+bindkey "^F" vi-cmd-mode
+bindkey jk vi-cmd-mode
+
+setopt hist_ignore_all_dups
+
+# aliases
+alias g='grep -i'
+alias e='emacsclient -n'
+alias ec='emacsclient -c -n'
+alias et='emacsclient -t'
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'''
+alias l='ls'
+alias ag='nocorrect ag'
+alias vims='nocorrect vim -S'
+alias tmuxa="tmux attach -t"
+alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'state|to\ full|to\ empty|percentage'"
+alias clip="xclip -selection c"
+
+# customize the prompt (the oh-my-zsh theme does most of the work)
+prompt_context() {
+    local user=`whoami`
+
+    if [[ -n "$SSH_CLIENT" ]]; then
+        echo "%{$fg[magenta]%}$user@%m %{$reset_color%}"
+    fi
+}
+PROMPT='$(prompt_context)$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
