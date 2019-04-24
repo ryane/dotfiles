@@ -14,6 +14,7 @@ unlink_dotfile() {
 unlink_dotfile 'gitconfig'
 unlink_dotfile 'githelpers'
 unlink_dotfile 'gitignore'
+unlink_dotfile 'pam_environment'
 unlink_dotfile 'tmux.conf'
 unlink_dotfile 'xprofile'
 unlink_dotfile 'Xresources'
