@@ -30,6 +30,8 @@ This was poached from https://github.com/garybernhardt/dotfiles/blob/master/.git
 
 ### tmux.conf
 
+### xprofile
+
 ### zshrc
 
 ### zshenv
