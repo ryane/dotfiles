@@ -36,6 +36,7 @@ link_dotfile() {
 link_dotfile 'gitconfig'
 link_dotfile 'githelpers'
 link_dotfile 'gitignore'
+link_dotfile 'gnupg/gpg-agent.conf'
 link_dotfile 'pam_environment'
 link_dotfile 'tmux.conf'
 link_dotfile 'xprofile'

@@ -28,6 +28,8 @@ This was poached from https://github.com/garybernhardt/dotfiles/blob/master/.git
 
 ### gitconfig
 
+### gnupg/gpg-agent.conf
+
 ### pam_environment
 
 ### tmux.conf
