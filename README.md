@@ -32,6 +32,8 @@ This was poached from https://github.com/garybernhardt/dotfiles/blob/master/.git
 
 ### xprofile
 
+### Xresources
+
 ### zshrc
 
 ### zshenv
