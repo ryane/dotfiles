@@ -40,7 +40,7 @@ URxvt.keysym.Control-Down:        \033[1;5B
 URxvt.keysym.Shift-Control-Down:  \033[1;6B
 
 ! urxvt plugins
- URxvt.perl-ext-common:  resize-font
+ URxvt.perl-ext-common:  resize-font,selection-to-clipboard
 
 ! default colors
 ! *background:                      #222D31
