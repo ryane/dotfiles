@@ -32,6 +32,9 @@ link_dotfile() {
   fi
 }
 
+mkdir -p ~/.gnupg
+mkdir -p ~/.mythemes
+
 # TODO: use authoritative list of dotfiles from somewhere
 link_dotfile 'gitconfig'
 link_dotfile 'githelpers'
@@ -43,3 +46,4 @@ link_dotfile 'xprofile'
 link_dotfile 'Xresources'
 link_dotfile 'zshrc'
 link_dotfile 'zshenv'
+link_dotfile 'mythemes/nord'

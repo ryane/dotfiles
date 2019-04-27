@@ -21,3 +21,6 @@ unlink_dotfile 'xprofile'
 unlink_dotfile 'Xresources'
 unlink_dotfile 'zshrc'
 unlink_dotfile 'zshenv'
+unlink_dotfile 'mythemes/nord'
+
+rm -rf ~/.mythemes
