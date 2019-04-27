@@ -39,6 +39,9 @@ URxvt.keysym.Shift-Control-Up:    \033[1;6A
 URxvt.keysym.Control-Down:        \033[1;5B
 URxvt.keysym.Shift-Control-Down:  \033[1;6B
 
+! urxvt plugins
+ URxvt.perl-ext-common:  resize-font
+
 ! default colors
 ! *background:                      #222D31
 ! *foreground:                      #d8d8d8
