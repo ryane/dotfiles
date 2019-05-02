@@ -33,6 +33,7 @@ link_dotfile() {
 }
 
 mkdir -p ~/.gnupg
+mkdir -p ~/.i3
 mkdir -p ~/.mythemes
 
 # TODO: use authoritative list of dotfiles from somewhere
@@ -40,6 +41,7 @@ link_dotfile 'gitconfig'
 link_dotfile 'githelpers'
 link_dotfile 'gitignore'
 link_dotfile 'gnupg/gpg-agent.conf'
+link_dotfile 'i3/config'
 link_dotfile 'pam_environment'
 link_dotfile 'tmux.conf'
 link_dotfile 'xprofile'
