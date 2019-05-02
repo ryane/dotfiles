@@ -1,23 +1,6 @@
 #!/bin/sh
 
+# TODO: can I set this in /etc/X11/xorg.conf.d/ ?
 dpi=168
 echo "setting dpi to $dpi with xrandr" | systemd-cat -t xprofile -p info
 xrandr --dpi $dpi
-
-echo "configuring natural scrolling" | systemd-cat -t xprofile -p info
-# builtin touchpad on x1 carbon (possibly other linux machines)
-xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
-
-# external mouse at the office plugged into kvm
-xinput --list "pointer:HID 0c45:7403" 2>/dev/null &&
-    xinput --set-prop "pointer:HID 0c45:7403" "libinput Natural Scrolling Enabled" 1
-
-# setup microsoft wireless mouse natural scrolling
-# I'm sure there is a cleaner way to do this:
-xinput list \
-    | grep "Microsoft.*2\.4.*pointer" \
-    | grep -o -P "id=\d+" \
-    | grep -o -P "\d+" \
-    | while read -r deviceid; do
-    xinput --set-prop "$deviceid" "libinput Natural Scrolling Enabled" 1
-done
