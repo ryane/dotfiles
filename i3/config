@@ -44,9 +44,6 @@ bindsym $mod+z exec --no-startup-id morc_menu
 # launch clipboard history
 bindsym $mod+Insert exec --no-startup-id clipmenu
 
-# automatically mount usb disks
-exec --no-startup-id /bin/udiskie -t &
-
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
@@ -295,6 +292,12 @@ exec --no-startup-id start_conky_maia
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+
+# automatically mount usb disks
+exec --no-startup-id /bin/udiskie -t &
+
+# launch nextcloud
+exec --no-startup-id /usr/bin/nextcloud &
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
