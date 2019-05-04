@@ -154,8 +154,8 @@ set $ws3 3
 set $ws4 4
 set $ws5 5
 set $ws6 6
-set $ws7 7
-set $ws8 8
+set $ws7 
+set $ws8 
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -192,6 +192,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
+assign [class="Chromium" instance="^mail\.google\.com"] $ws7
+assign [class="Chromium" instance="^calendar\.google\.com"] $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -233,6 +235,18 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# apps mode
+bindsym $mod+o mode "$mode_apps"
+set $mode_apps (m)mail, (c)alendar
+mode "$mode_apps" {
+    bindsym m exec --no-startup-id "chromium --app=https://mail.google.com/mail/u/0/#inbox", mode "default"
+    bindsym c exec --no-startup-id "chromium --app=https://calendar.google.com/calendar/r", mode "default"
+
+    # exit apps mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
