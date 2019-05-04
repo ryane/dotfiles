@@ -29,6 +29,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec terminal
 
+# emacsclient
+bindsym $mod+Shift+Return exec emacsclient -c -n
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
