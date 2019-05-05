@@ -23,5 +23,7 @@ unlink_dotfile 'Xresources'
 unlink_dotfile 'zshrc'
 unlink_dotfile 'zshenv'
 unlink_dotfile 'mythemes/nord'
+unlink_dotfile 'config/ranger/commands.py'
+unlink_dotfile 'config/ranger/rc.conf'
 
 rm -rf ~/.mythemes
