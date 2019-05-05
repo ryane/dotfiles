@@ -238,10 +238,11 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # apps mode
 bindsym $mod+o mode "$mode_apps"
-set $mode_apps (m)mail, (c)alendar
+set $mode_apps (m)mail, (c)alendar, (f)iles
 mode "$mode_apps" {
     bindsym m exec --no-startup-id "chromium --app=https://mail.google.com/mail/u/0/#inbox", mode "default"
     bindsym c exec --no-startup-id "chromium --app=https://calendar.google.com/calendar/r", mode "default"
+    bindsym f exec --no-startup-id "chromium --app=https://cloud.eschland.com/apps/files/", mode "default"
 
     # exit apps mode: "Enter" or "Escape"
     bindsym Return mode "default"
