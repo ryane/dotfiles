@@ -114,6 +114,9 @@ bindsym $mod+semicolon split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
+# move workspaces to different outputs
+bindsym $mod+x move workspace to output right
+
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 

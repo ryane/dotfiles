@@ -111,3 +111,15 @@ prompt_context() {
     fi
 }
 PROMPT='$(prompt_context)$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
+
+# init restic
+restic_init() {
+    set -a
+    if test -f ~/.config/restic-backup.conf; then
+        source ~/.config/restic-backup.conf
+    fi
+    if test -f ~/.config/restic-credentials.conf; then
+        source ~/.config/restic-credentials.conf
+    fi
+    set +a
+}
