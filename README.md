@@ -14,8 +14,8 @@ Note: these notes are for my own reference purposes. Use at your own peril.
 
 ### Install dotfiles
 
-    git clone https://github.com/ryane/dotfiles
-    cd dotfiles
+    git clone git://github.com/ryane/dotfiles ~/.dotfiles
+    cd ~/.dotfiles
     ./install.sh
 
 ## Home directory configuration files
