@@ -1,0 +1,4 @@
+rofi.combi-modi:    window,drun
+rofi.theme:         solarized
+rofi.font:          hack 20
+rofi.modi:          combi
