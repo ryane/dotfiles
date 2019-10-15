@@ -259,13 +259,20 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # apps mode
 bindsym $mod+o mode "$mode_apps"
-set $mode_apps (m)ail, (c)alendar, (f)iles, (n)as, (s)yncthing
+set $mode_apps (m)ail, (c)alendar, n(o)tion, (f)iles, (n)as, (s)yncthing, (g)rafana, (d)rive, (a)rgocd m(i)ndmeister, (p)ocket, (l)coda
 mode "$mode_apps" {
     bindsym m exec --no-startup-id "chromium --app=https://mail.google.com/mail/u/0/#inbox", mode "default"; [class="Chromium" instance="^mail\.google\.com"] scratchpad show;
     bindsym c exec --no-startup-id "chromium --app=https://calendar.google.com/calendar/r", mode "default"
     bindsym f exec --no-startup-id "chromium --app=https://cloud.eschland.com/apps/files/", mode "default"
     bindsym n exec --no-startup-id "chromium --app=http://osmium.local:5000/", mode "default"
     bindsym s exec --no-startup-id "chromium --app=http://localhost:8384/", mode "default"
+    bindsym g exec --no-startup-id "chromium --app=https://grafana.eschland.com", mode "default"
+    bindsym d exec --no-startup-id "chromium --app=https://drive.google.com/drive/u/0/my-drive", mode "default"
+    bindsym a exec --no-startup-id "chromium --app=https://argocd.eschland.com/applications", mode "default"
+    bindsym i exec --no-startup-id "chromium --app=https://www.mindmeister.com/folders", mode "default"
+    bindsym p exec --no-startup-id "chromium --app=https://app.getpocket.com/", mode "default"
+    bindsym l exec --no-startup-id "chromium --app=https://coda.io/docs", mode "default"
+    bindsym o exec --no-startup-id "chromium --app=https://www.notion.so/", mode "default"
 
     # exit apps mode: "Enter" or "Escape"
     bindsym Return mode "default"
