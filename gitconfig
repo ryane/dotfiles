@@ -48,5 +48,5 @@ default = current
 [github]
 user = ryane
 [gpg]
-program = gpg2
+program = gpg
 
