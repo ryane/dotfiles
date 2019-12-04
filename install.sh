@@ -35,6 +35,7 @@ link_dotfile() {
 mkdir -p ~/.gnupg
 mkdir -p ~/.i3
 mkdir -p ~/.mythemes
+mkdir -p ~/.config/ranger
 
 # TODO: use authoritative list of dotfiles from somewhere
 link_dotfile 'gitconfig'
