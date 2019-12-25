@@ -2,7 +2,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 #
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
-set $mod Mod4
+set $mod Mod1
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -45,6 +45,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 # launch clipboard history
 bindsym $mod+Insert exec --no-startup-id CM_LAUNCHER=rofi clipmenu
+bindsym $mod+Shift+y exec --no-startup-id CM_LAUNCHER=rofi clipmenu
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -64,8 +65,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec chromium
-bindsym $mod+c exec chromium
+bindsym $mod+F2 exec firefox -new-window
+bindsym $mod+c exec firefox -new-window
 # bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
@@ -474,3 +475,11 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+bindsym $mod+Shift+BackSpace move scratchpad
+bindsym $mod+backslash scratchpad show
+bindsym $mod+BackSpace [class="Termite"] scratchpad show
+bindsym $mod+equal [class="Chromium" instance="^mail\.google\.com"] scratchpad show
+bindsym $mod+slash exec emacsclient -c -F '(quote (name . "org-protocol-capture"))' -e '(org-capture)'
+bindsym $mod+period exec emacsclient -c -F '(quote (name . "org-journal"))' -e '(rae-org-journal)'
+for_window [class="Emacs" instance="org-journal"] move scratchpad, scratchpad show
