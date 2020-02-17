@@ -62,7 +62,7 @@ ZSH_THEME="eastwood"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode git)
+plugins=(vi-mode git ssh-agent gcloud)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -123,3 +123,8 @@ restic_init() {
     fi
     set +a
 }
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/vault vault
+
+source /home/ryan/.config/broot/launcher/bash/br
