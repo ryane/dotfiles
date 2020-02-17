@@ -218,7 +218,12 @@ for_window [class="firefox" instance="Navigator" title="^https:\/\/calendar\.goo
 for_window [class="firefox" instance="Navigator" title="^http:\/\/osmium\.home\.internal\.jossware\.org"] move scratchpad
 for_window [class="firefox" instance="Navigator" title="^http:\/\/osmium\.home\.internal\.jossware\.org"] border pixel 2
 for_window [class="firefox" instance="Navigator" title="^http:\/\/osmium\.home\.internal\.jossware\.org"] resize set 1900 1200
+for_window [class="firefox" instance="Navigator" title="^https:\/\/roamresearch\.com"] move scratchpad
+for_window [class="firefox" instance="Navigator" title="^https:\/\/roamresearch\.com"] border pixel 2
+for_window [class="firefox" instance="Navigator" title="^https:\/\/roamresearch\.com"] resize set 1900 1200
 for_window [class="URxvt" instance="scratch"] move scratchpad
+for_window [class="URxvt" instance="scratch"] border pixel 2
+for_window [class="URxvt" instance="scratch"] resize set 1900 1200
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -261,6 +266,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+grave exec --no-startup-id "urxvt -name scratch", mode "default";
+
 # apps mode
 bindsym $mod+o mode "$mode_apps"
 set $mode_apps (m)ail, (c)alendar, (n)otion, (f)iles, (o)smium, (t)erminal
@@ -270,7 +277,8 @@ mode "$mode_apps" {
     bindsym f [class="firefox" instance="Navigator" title="^https:\/\/cloud\.eschland\.com"] scratchpad show, mode "default"
     bindsym o [class="firefox" instance="Navigator" title="^http:\/\/osmium\.home\.internal\.jossware\.org"] scratchpad show, mode "default"
     bindsym n [class="firefox" instance="Navigator" title="^https:\/\/www\.notion\.so"] scratchpad show, mode "default"
-    bindsym t exec --no-startup-id "urxvt -name scratch", mode "default"; [class="URxvt" instance="scratch"] scratchpad show;
+    bindsym r [class="firefox" instance="Navigator" title="^https:\/\/roamresearch\.com"] scratchpad show, mode "default"
+    bindsym t [class="URxvt" instance="scratch"] scratchpad show, mode "default";
 
     # exit apps mode: "Enter" or "Escape"
     bindsym Return mode "default"
