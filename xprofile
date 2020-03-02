@@ -1,6 +1,6 @@
 #!/bin/sh
 
 # TODO: can I set this in /etc/X11/xorg.conf.d/ ?
-dpi=168
+dpi=96
 echo "setting dpi to $dpi with xrandr" | systemd-cat -t xprofile -p info
 xrandr --dpi $dpi
