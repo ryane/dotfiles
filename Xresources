@@ -1,4 +1,5 @@
-Xft.dpi:       144
+! Xft.dpi:       144
+Xft.dpi:       120
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
@@ -19,7 +20,7 @@ Xcursor.size:                     0
 
 URxvt.font:                       xft:TerminessTTFNerdFontMono:size=12
 ! URxvt.font:                       xft:Sauce Code Pro Nerd Font Mono:size=9:antialias=true:hinting=true
-
+! URxvt.font:                       xft:FiraCode:size=10
 
 URxvt.depth:                      32
 URxvt*scrollBar:                  false
