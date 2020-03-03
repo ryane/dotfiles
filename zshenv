@@ -10,10 +10,10 @@ fi
 if [ -d /usr/local/go/bin ]; then
     export PATH=$PATH:/usr/local/go/bin
 fi
-if [ -d ~/Projects/golang ]; then
-    export GOPATH=~/Projects/golang
-    export PATH=$PATH:$GOPATH/bin
-fi
+
+mkdir -p ~/go
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
 
 # krew kubernetes plugin manager
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
