@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # use this at your own risk
 # should be run from the root of the dotfiles dir
 
