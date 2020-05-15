@@ -141,3 +141,13 @@ then
     echo "loading yarn..."
     export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 fi
+
+if [ ! -z "$WSLENV" ]
+then
+   # TODO: only do the below on wsl hosts
+   if [ -z "$DISPLAY" ]
+   then
+       export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+   fi
+   export LANG=en_US.UTF-8
+fi
