@@ -127,4 +127,3 @@ restic_init() {
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
 
-source /home/ryan/.config/broot/launcher/bash/br
