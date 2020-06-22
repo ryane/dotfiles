@@ -27,7 +27,7 @@ font xft:URWGothic-Book 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec termite
 
 # emacsclient
 bindsym $mod+Shift+Return exec emacsclient -c -n
@@ -206,9 +206,9 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Chromium" instance="^calendar\.google\.com"] $ws8
 # assign [class="Chromium" instance="^osmium\.local"] $ws6
 
-for_window [class="firefox" instance="Navigator" title="^https:\/\/mail\.google\.com"] move scratchpad
-for_window [class="firefox" instance="Navigator" title="^https:\/\/mail\.google\.com"] border pixel 2
-for_window [class="firefox" instance="Navigator" title="^https:\/\/mail\.google\.com"] resize set 1900 1200
+for_window [class="firefox" instance="Navigator" title=".*\sryanesc@gmail.com\s-\sGmail.*"] move scratchpad
+for_window [class="firefox" instance="Navigator" title=".*\sryanesc@gmail.com\s-\sGmail.*"] border pixel 2
+for_window [class="firefox" instance="Navigator" title=".*\sryanesc@gmail.com\s-\sGmail.*"] resize set 1900 1200
 for_window [class="firefox" instance="Navigator" title="^https:\/\/www\.notion\.so"] move scratchpad
 for_window [class="firefox" instance="Navigator" title="^https:\/\/www\.notion\.so"] border pixel 2
 for_window [class="firefox" instance="Navigator" title="^https:\/\/www\.notion\.so"] resize set 1900 1200
@@ -272,7 +272,7 @@ bindsym $mod+grave exec --no-startup-id "urxvt -name scratch", mode "default";
 bindsym $mod+o mode "$mode_apps"
 set $mode_apps (m)ail, (c)alendar, (n)otion, (f)iles, (o)smium, (t)erminal
 mode "$mode_apps" {
-    bindsym m [class="firefox" instance="Navigator" title="^https:\/\/mail\.google\.com"] scratchpad show, mode "default"
+    bindsym m [class="firefox" instance="Navigator" title=".*\sryanesc@gmail.com\s-\sGmail.*"] scratchpad show, mode "default"
     bindsym c [class="firefox" instance="Navigator" title="^https:\/\/calendar\.google\.com"] scratchpad show, mode "default"
     bindsym f [class="firefox" instance="Navigator" title="^https:\/\/cloud\.eschland\.com"] scratchpad show, mode "default"
     bindsym o [class="firefox" instance="Navigator" title="^http:\/\/osmium\.home\.internal\.jossware\.org"] scratchpad show, mode "default"
