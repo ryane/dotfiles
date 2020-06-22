@@ -62,7 +62,7 @@ ZSH_THEME="eastwood"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode git ssh-agent gcloud)
+plugins=(vi-mode git fzf gpg-agent gcloud kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -127,3 +127,25 @@ restic_init() {
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/vault vault
 
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -z "$NVM_DIR" ]
+then
+    echo "loading nvm..."
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+    echo "loading yarn..."
+    export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+fi
+
+if [ ! -z "$WSLENV" ]
+then
+   # TODO: only do the below on wsl hosts
+   if [ -z "$DISPLAY" ]
+   then
+       export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+   fi
+   export LANG=en_US.UTF-8
+fi

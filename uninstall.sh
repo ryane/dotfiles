@@ -25,5 +25,6 @@ unlink_dotfile 'zshenv'
 unlink_dotfile 'mythemes/nord'
 unlink_dotfile 'config/ranger/commands.py'
 unlink_dotfile 'config/ranger/rc.conf'
+unlink_dotfile 'config/rofi'
 
 rm -rf ~/.mythemes

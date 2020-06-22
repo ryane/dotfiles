@@ -27,7 +27,7 @@ font xft:URWGothic-Book 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec i3-sensible-terminal
 
 # emacsclient
 bindsym $mod+Shift+Return exec emacsclient -c -n
@@ -51,7 +51,7 @@ bindsym $mod+Shift+y exec --no-startup-id CM_LAUNCHER=rofi clipmenu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
+# exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
@@ -330,26 +330,27 @@ mode "resize" {
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+exec --no-startup-id /usr/bin/xrdb -merge ~/.Xresources
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
-exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
+# exec --no-startup-id nm-applet
+# exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
+# exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id fix_xcursor
 
 # automatically mount usb disks
-exec --no-startup-id /bin/udiskie -t &
+# exec --no-startup-id /bin/udiskie -t &
 
 # launch nextcloud
-exec --no-startup-id /usr/bin/nextcloud &
+# exec --no-startup-id /usr/bin/nextcloud &
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -394,7 +395,7 @@ bar {
 
   bindsym button4 nop
   bindsym button5 nop
-#   font xft:URWGothic-Book 11
+  font xft:URWGothic-Book 9
   strip_workspace_numbers yes
 
     colors {
