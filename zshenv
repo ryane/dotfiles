@@ -25,3 +25,7 @@ fi
 if [ -d ~/.cargo/bin ]; then
     export PATH=$PATH:~/.cargo/bin
 fi
+
+if [ -d ~/.local/bin ]; then
+    export PATH=$PATH:~/.local/bin
+fi
