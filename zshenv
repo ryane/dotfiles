@@ -29,3 +29,8 @@ fi
 if [ -d ~/.local/bin ]; then
     export PATH=$PATH:~/.local/bin
 fi
+
+# context
+if [ -d /opt/context/tex/texmf-linux-64/bin ];then
+    export PATH=$PATH:/opt/context/tex/texmf-linux-64/bin
+fi
