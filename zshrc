@@ -101,6 +101,7 @@ alias vims='nocorrect vim -S'
 alias tmuxa="tmux attach -t"
 alias batt="upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E 'state|to\ full|to\ empty|percentage'"
 alias clip="xclip -selection c"
+alias xc="xclip -selection clipboard"
 
 # customize the prompt (the oh-my-zsh theme does most of the work)
 prompt_context() {
