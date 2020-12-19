@@ -47,3 +47,7 @@ tool = vimdiff
 default = current
 [github]
 user = ryane
+[credential "https://source.developers.google.com"]
+	helper = gcloud.sh
+[credential]
+	helper = cache
