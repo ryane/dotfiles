@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="eastwood"
+ZSH_THEME="dst"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -106,14 +106,14 @@ alias clip="xclip -selection c"
 alias xc="xclip -selection clipboard"
 
 # customize the prompt (the oh-my-zsh theme does most of the work)
-prompt_context() {
-    local user=`whoami`
+# prompt_context() {
+#     local user=`whoami`
 
-    if [[ -n "$SSH_CLIENT" ]]; then
-        echo "%{$fg[magenta]%}$user@%m %{$reset_color%}"
-    fi
-}
-PROMPT='$(prompt_context)$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
+#     if [[ -n "$SSH_CLIENT" ]]; then
+#         echo "%{$fg[magenta]%}$user@%m %{$reset_color%}"
+#     fi
+# }
+# PROMPT='$(prompt_context)$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
 
 # init restic
 restic_init() {
@@ -132,16 +132,29 @@ complete -o nospace -C /usr/bin/vault vault
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ -z "$NVM_DIR" ]
-then
-    echo "loading nvm..."
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Lazyload Node.js - NVM and npm
+# https://github.com/ryanhanwu/dotfiles/blob/master/.zshrc#L79
+lazynvm() {
+  unset -f nvm node npm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  nvm use default
+}
 
-    echo "loading yarn..."
-    export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-fi
+nvm() {
+  lazynvm
+  nvm $@
+}
+
+node() {
+  lazynvm
+  node $@
+}
+
+npm() {
+  lazynvm
+  npm $@
+}
 
 if [ ! -z "$WSLENV" ]
 then
