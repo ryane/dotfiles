@@ -23,6 +23,7 @@ fi
 
 # rust
 if [ -d ~/.cargo/bin ]; then
+    source "$HOME/.cargo/env"
     export PATH=$PATH:~/.cargo/bin
 fi
 
