@@ -166,6 +166,9 @@ then
    export LANG=en_US.UTF-8
 fi
 
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
+
 # git stats
 
 stats_dotfiles() {
