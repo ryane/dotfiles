@@ -165,3 +165,57 @@ then
    fi
    export LANG=en_US.UTF-8
 fi
+
+# git stats
+
+stats_dotfiles() {
+  cd ${HOME}/.dotfiles
+  git fetch
+  local branch
+  branch=$(git branch --show-current)
+  echo ".dotfiles\t ($(git status -s -uno | wc -l)) $(git rev-list --left-right --count $branch...origin/$branch)"
+}
+
+stats_emacsd() {
+  cd ${HOME}/.emacs.d
+  git fetch
+  local branch
+  branch=$(git branch --show-current)
+  echo ".emacs.d\t ($(git status -s -uno | wc -l)) $(git rev-list --left-right --count $branch...origin/$branch)"
+}
+
+stats_doomd() {
+  cd ${HOME}/.doom.d
+  git fetch
+  local branch
+  branch=$(git branch --show-current)
+  echo ".doom.d\t\t ($(git status -s -uno | wc -l)) $(git rev-list --left-right --count $branch...origin/$branch)"
+}
+
+stats_show() {
+  echo
+  echo " *** Welcome to $(hostname) *** "
+  echo
+  stats_dotfiles
+  stats_emacsd
+  stats_doomd
+  echo
+}
+
+stats_show_maybe() {
+  mkdir -p ${HOME}/.local/state/stats-show
+  touch ${HOME}/.local/state/stats-show/index
+
+  local count
+  count=$(cat ${HOME}/.local/state/stats-show/index)
+
+  let count+=1
+  if [[ $count -eq 10 ]]; then
+      stats_show
+      echo -n 0 > ${HOME}/.local/state/stats-show/index 
+  else
+      echo -n $count > ${HOME}/.local/state/stats-show/index 
+  fi
+}
+
+stats_show_maybe
