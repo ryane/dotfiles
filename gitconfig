@@ -51,3 +51,5 @@ user = ryane
 	helper = gcloud.sh
 [credential]
 	helper = cache
+[init]
+	defaultBranch = main
